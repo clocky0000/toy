@@ -4,7 +4,7 @@ const app = express();
 
 const GOOGLE_CLIENT_ID = '1088427609061-98rmpcfetpeu2lkfn1pmu60t74ogecjl.apps.googleusercontent.com';               // 발급받은 내 아이디
 const GOOGLE_CLIENT_SECRET = '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';                                                      // 발급받은 내 비번
-const GOOGLE_LOGIN_REDIRECT_URI = 'http://localhost:8888/login/redirect';
+const GOOGLE_LOGIN_REDIRECT_URI = 'http://first.koreacentral.cloudapp.azure.com:8888/login/redirect';
 const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';                    // 토큰 요청 서버
 const GOOGLE_USERINFO_URL = 'https://www.googleapis.com/oauth2/v2/userinfo';
 
@@ -16,12 +16,14 @@ app.get('/',(req, res) => {                                                     
 });
 
 app.get('/login',(req, res) => {
+
     let url = 'https://accounts.google.com/o/oauth2/v2/auth';
     url += `?client_id=${GOOGLE_CLIENT_ID}`
     url += `&redirect_uri=${GOOGLE_LOGIN_REDIRECT_URI}`     // 구글이 redirect 할 uri -> 계정 선택
     url += '&response_type=code'
     url += '&scope=email profile'
     res.redirect(url);
+    
 });
 
 app.get('/login/redirect', (req, res) => {
