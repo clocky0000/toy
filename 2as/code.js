@@ -29,12 +29,11 @@ app.get('/login',(req, res) => {
 app.get('/login/redirect', async (req, res) => {
     const { code } = req.query;                 // redirect 될 때, code라는 쿼리스트링 (사용자 입력 데이터 전달)
     console.log(`code: ${code}`);
-    res.send('Login success!');
     const resp = await axios.post(GOOGLE_TOKEN_URL, {
       	code,
         client_id: GOOGLE_CLIENT_ID,
         client_secret: GOOGLE_CLIENT_SECRET,
-        redirect_uri: GOOGLE_SIGNUP_REDIRECT_URI,
+        redirect_uri: GOOGLE_LOGIN_REDIRECT_URI,
         grant_type: 'authorization_code',
     });
     const resp2 = await axios.get(GOOGLE_USERINFO_URL, {
