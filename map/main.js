@@ -31,5 +31,5 @@ app.get('/main',(req, res) => {                                                 
 });
 
 app.listen(8080, () => {
-    console.log('server 8888');
+    console.log('server 8080');
 });
