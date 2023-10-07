@@ -7,12 +7,12 @@ const app = express();
 const port = 8080;
 
 // Google Maps API 키
-const googleMapsClient = new Client({ key: 'AIzaSyAGYQ4XUty5CemiTsQ1Ung5lnkLhdsxpBQ' });
+const googleMapsClient = new Client({ key : '내 구글 키' });
 
 // MySQL 연결 설정
 const dbConfig = {
   user: 'root',
-  password: 'lyjin0928!',
+  password: '내 비번',
   database: 'test1',
 };
 

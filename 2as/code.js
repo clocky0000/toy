@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 
 const GOOGLE_CLIENT_ID = '1088427609061-98rmpcfetpeu2lkfn1pmu60t74ogecjl.apps.googleusercontent.com';               // 발급받은 내 아이디
-const GOOGLE_CLIENT_SECRET = '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';                                                      // 발급받은 내 비번
+const GOOGLE_CLIENT_SECRET = '안알랴줌ㅋ';                                                      // 발급받은 내 비번
 const GOOGLE_LOGIN_REDIRECT_URI = 'http://first.koreacentral.cloudapp.azure.com:8888/login/redirect';
 const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token';                    // 토큰 요청 서버
 const GOOGLE_USERINFO_URL = 'https://www.googleapis.com/oauth2/v2/userinfo';
