@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__map + '/index.html');
 });
 
 app.post('/addAddress', async (req, res) => {
@@ -54,6 +54,11 @@ app.post('/addAddress', async (req, res) => {
     console.error('에러 발생:', error);
     res.status(500).send('에러 발생');
   }
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('에러 발생');
 });
 
 app.listen(port, () => {
