@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.sendFile(__map + '/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/addAddress', async (req, res) => {
