@@ -5,8 +5,8 @@ const mysql = require('mysql')
 const bodyParser = require('body-parser')
 const client = mysql.createConnection({
     user: 'root',
-    password: 'lyjin0928!', //본인의 db root 계정 비밀번호
-    database: 'test1' //본인의 db
+    password: 'lyjin0928!', 
+    database: 'test1' 
   })
 const app = express();
 
