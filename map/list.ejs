@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>식당 목록</title>
+</head>
+<body>
+  <h1>식당 목록</h1>
+  <a href="/insert">식당 추가하기</a>
+  <hr/>
+  <table border="1">
+    <tr>
+      <th>삭제</th>
+      <th>수정</th>
+      <th>no</th>
+      <th>식당이름</th>
+      <th>전화번호</th>
+      <th>주소</th>
+      <th>위도</th>
+      <th>경도</th>
+      <th>설명</th>
+    </tr>
+    <% data.forEach(function (item, index) { %>
+    <tr>
+      <td><a href="/delete/<%= item.id%>">DELETE</a></td>
+      <td><a href="/edit/<%= item.id %>">EDIT</a></td>
+      <td><%= item.id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.phone %></td>
+      <td><%= item.address %></td>
+      <td><%= item.lat %></td>
+      <td><%= item.lng %></td>
+      <td><%= item.infor %></td>
+    </tr>
+    <% }); %>
+  </table>
+</body>
+</html>

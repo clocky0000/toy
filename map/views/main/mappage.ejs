@@ -2,43 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>주소로 장소 표시하기</title>
+    <title>마커 생성하기</title>
     
 </head>
 <body>
-    <h1>당신의 맛집을 입력해주세요</h1>
-    NAME <input id="P_name" type = "text" name = "P_name" placeholder = "식당 이름"><br/>
-    DESC <input id="P_name" type = "text" name = "P_name" placeholder = "식당 이름"><br/>
-    ADDRESS <input id="P_address" type = "text" name = "P_address" placeholder = "식당 주소"><button>주소 확인하기</button><br/>
-    <div id="map" style="width:500px;height:100px;"></div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=76c10b42ec0ce903d1781b79638ba950&libraries=services"></script>
-    <script>
-    var mapContainer = document.getElementById('map'),  
-    mapOption = {
+<div id="map" style="width:100%;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=76c10b42ec0ce903d1781b79638ba950"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
         center: new kakao.maps.LatLng(33.450701, 126.570667), 
         level: 3 
-    };  
-    var map = new kakao.maps.Map(mapContainer, mapOption); 
-    var geocoder = new kakao.maps.services.Geocoder();
-    geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-            var marker = new kakao.maps.Marker({
-                map: map,
-                position: coords
-            });
-            var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="width:150px;text-align:center;padding:6px 0;">위치가 이곳이 맞나요?</div>'
-            });
-            infowindow.open(map, marker);
-            map.setCenter(coords);
-        } 
-    });
+    };
 
-    <p>
-    <button>맛집 등록하기</button>
-    <button>등록 취소하기</button>
-    </p>
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+
+var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+
+
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+
+marker.setMap(map);
 
 
 </script>
