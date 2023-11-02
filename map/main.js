@@ -1,21 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
-const mysql = require("mysql2/promise");
-const secret = require("/config/secret");
 const bodyParser = require('body-parser');
-
-const pool = mysql.createPool({
-  host: secret.host,
-  user: secret.user,
-  port: secret.port,
-  password: secret.password,
-  database: secret.database,
-});
-
-module.exports = {
-  pool: pool,
-};
 
 const app = express();
 app.use(bodyParser.urlencoded({
