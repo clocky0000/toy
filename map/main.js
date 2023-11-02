@@ -1,18 +1,52 @@
 const express = require('express');
+const fs = require('fs');
 const ejs = require('ejs');
+const mysql = require("mysql2/promise");
+const secret = require("./secret");
+const bodyParser = require('body-parser');
+
+const pool = mysql.createPool({
+  host: secret.host,
+  user: secret.user,
+  port: secret.port,
+  password: secret.password,
+  database: secret.database,
+});
+
+module.exports = {
+  pool: pool,
+};
 
 const app = express();
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+
+app.set('views','./map/views');
+app.set('view engine','ejs');
 const path = require("path");
 
 app.get('/', (req, res) => {
-  // 루트 경로 ("/")에 대한 처리를 여기에 작성
-  res.sendFile(__dirname + '/index.html'); // HTML 파일을 보내는 예제
+  res.render("main/index");
 });
 
-app.get('/mappage', (req, res) => {
-  // 루트 경로 ("/")에 대한 처리를 여기에 작성
-  res.sendFile(__dirname + '/index.html'); // HTML 파일을 보내는 예제
-});
+app.get('/insert', (req, res) => {
+  fs.readFile('insert.html', 'utf8', function (err, data) {
+    res.send(data)
+  })
+})
+
+app.post('/insert', (req, res) => {
+  const body = req.body
+  client.query('insert into res (name, address, phone, info)  => values (?, ?, ?, ?);', [
+    body.name,
+    body.address,
+    body.phone,
+    body.info,
+  ], function() {
+    res.redirect('/')
+  })
+})
 
 app.listen(8080, () => {
     console.log('server 8080');

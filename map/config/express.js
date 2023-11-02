@@ -17,8 +17,6 @@ module.exports = function () {
   app.use(cors());
   app.use(express.static("/home/ubuntu/food-map/front"));
 
-  // app.use(express.static(process.cwd() + '/public'));
-
   require("../src/routes/indexRoute")(app);
 
   return app;

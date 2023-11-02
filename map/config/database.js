@@ -35,13 +35,13 @@ const exampleTransaction = async (sql, params) => {
   try {
     const connection = await pool.getConnection(async (conn) => conn);
     try {
-      await connection.beginTransaction(); // START TRANSACTION
+      await connection.beginTransaction(); 
       const [rows] = await connection.query(sql, params);
-      await connection.commit(); // COMMIT
+      await connection.commit(); 
       connection.release();
       return rows;
     } catch (err) {
-      await connection.rollback(); // ROLLBACK
+      await connection.rollback(); 
       connection.release();
       console.error(err);
       return false;

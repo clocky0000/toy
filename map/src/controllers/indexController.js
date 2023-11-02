@@ -14,8 +14,8 @@ exports.readRestaurants = async function (req, res) {
       return res.send({
         result: rows,
         isSuccess: true,
-        code: 200, // 요청 실패시 400번대 코드
-        message: "요청 성공",
+        code: 200,
+        message: "끼얏호 요청 성공",
       });
     } catch (err) {
         console.error(err);
