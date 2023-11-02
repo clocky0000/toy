@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const ejs = require('ejs');
 const mysql = require("mysql2/promise");
-const secret = require("./secret");
+const secret = require(" /config/secret");
 const bodyParser = require('body-parser');
 
 const pool = mysql.createPool({
