@@ -22,12 +22,10 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
-app.set('views','./map/views');
-app.set('view engine','ejs');
 const path = require("path");
 
 app.get('/', (req, res) => {
-  res.render("main/index");
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/insert', (req, res) => {
